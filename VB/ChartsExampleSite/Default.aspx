@@ -1,34 +1,34 @@
 <%@ Page Language="vb" AutoEventWireup="true"  CodeFile="Default.aspx.vb" Inherits="_Default" %>
 
 <%-- BeginRegion TagPrefix and page properties --%>
-<%@ Register Assembly="DevExpress.XtraCharts.v9.3, Version=9.3.0.0, Culture=neutral, PublicKeyToken=79868B8147B5EAE4"
+<%@ Register Assembly="DevExpress.XtraCharts.v13.1, Version=13.1.4.0, Culture=neutral, PublicKeyToken=B88D1754D700E49A"
 	Namespace="DevExpress.XtraCharts" TagPrefix="cc1" %>
-<%@ Register Assembly="DevExpress.Web.v9.3, Version=9.3.0.0, Culture=neutral, PublicKeyToken=79868B8147B5EAE4"
+<%@ Register Assembly="DevExpress.Web.v13.1, Version=13.1.4.0, Culture=neutral, PublicKeyToken=B88D1754D700E49A"
 	Namespace="DevExpress.Web.ASPxCallbackPanel" TagPrefix="dxcp" %>
-<%@ Register Assembly="DevExpress.Web.v9.3, Version=9.3.0.0, Culture=neutral, PublicKeyToken=79868B8147B5EAE4"
+<%@ Register Assembly="DevExpress.Web.v13.1, Version=13.1.4.0, Culture=neutral, PublicKeyToken=B88D1754D700E49A"
 	Namespace="DevExpress.Web.ASPxPanel" TagPrefix="dxp" %>
-<%@ Register Assembly="DevExpress.Web.ASPxEditors.v9.3, Version=9.3.0.0, Culture=neutral, PublicKeyToken=79868B8147B5EAE4"
+<%@ Register Assembly="DevExpress.Web.v13.1, Version=13.1.4.0, Culture=neutral, PublicKeyToken=B88D1754D700E49A"
 	Namespace="DevExpress.Web.ASPxEditors" TagPrefix="dxe" %>
-<%@ Register Assembly="DevExpress.Web.v9.3, Version=9.3.0.0, Culture=neutral, PublicKeyToken=79868B8147B5EAE4"
+<%@ Register Assembly="DevExpress.Web.v13.1, Version=13.1.4.0, Culture=neutral, PublicKeyToken=B88D1754D700E49A"
 	Namespace="DevExpress.Web.ASPxPopupControl" TagPrefix="dxpc" %>
 
-<%@ Register Assembly="DevExpress.XtraCharts.v9.3.Web"
+<%@ Register Assembly="DevExpress.XtraCharts.v13.1.Web"
 	Namespace="DevExpress.XtraCharts.Web" TagPrefix="dxchartsui" %>
 
-<%@ Register Assembly="DevExpress.XtraCharts.v9.3"
+<%@ Register Assembly="DevExpress.XtraCharts.v13.1"
 	Namespace="DevExpress.XtraCharts" TagPrefix="cc2" %>
 
-<%@ Register Assembly="DevExpress.Web.v9.3" Namespace="DevExpress.Web.ASPxCallback"
+<%@ Register Assembly="DevExpress.Web.v13.1" Namespace="DevExpress.Web.ASPxCallback"
 	TagPrefix="dxcb" %>
 
-<%@ Register Assembly="DevExpress.Web.v9.3" Namespace="DevExpress.Web.ASPxPopupControl"
+<%@ Register Assembly="DevExpress.Web.v13.1" Namespace="DevExpress.Web.ASPxPopupControl"
 	TagPrefix="dxpc" %>
 
-<%@ Register Assembly="DevExpress.Web.v9.3" Namespace="DevExpress.Web.ASPxCallbackPanel"
+<%@ Register Assembly="DevExpress.Web.v13.1" Namespace="DevExpress.Web.ASPxCallbackPanel"
 	TagPrefix="dxcp" %>
-<%@ Register Assembly="DevExpress.Web.v9.3" Namespace="DevExpress.Web.ASPxPanel"
+<%@ Register Assembly="DevExpress.Web.v13.1" Namespace="DevExpress.Web.ASPxPanel"
 	TagPrefix="dxp" %>
-<%@ Register Assembly="DevExpress.Web.ASPxEditors.v9.3" Namespace="DevExpress.Web.ASPxEditors"
+<%@ Register Assembly="DevExpress.Web.v13.1" Namespace="DevExpress.Web.ASPxEditors"
 	TagPrefix="dxe" %>
 <%-- EndRegion --%>
 
@@ -44,36 +44,57 @@
 <body>
 	<form id="form1" runat="server">
 		<dxchartsui:WebChartControl ID="WebChartControl1" runat="server" DataSourceID="AccessDataSource1"
-			DiagramTypeName="XYDiagram" EnableClientSideAPI="True" Height="500px" Width="1000px">
+			 EnableClientSideAPI="True" Height="500px" Width="1000px">
 			<SeriesSerializable>
-				<cc2:Series ArgumentDataMember="ProductName" LabelTypeName="SideBySideBarSeriesLabel"
-					Name="Series 1" PointOptionsTypeName="PointOptions" SeriesViewTypeName="SideBySideBarSeriesView"
+				<cc2:Series ArgumentDataMember="ProductName" 
+					Name="Series 1"  
 					ValueDataMembersSerializable="UnitPrice">
-					<view hiddenserializablestring="to be serialized"></view>
-					<label hiddenserializablestring="to be serialized">
-						<fillstyle filloptionstypename="SolidFillOptions">
-<Options HiddenSerializableString="to be serialized"></Options>
+					<ViewSerializable>
+<cc1:SideBySideBarSeriesView hiddenserializablestring="to be serialized"></cc1:SideBySideBarSeriesView>
+</ViewSerializable>
+					<LabelSerializable>
+<cc1:SideBySideBarSeriesLabel hiddenserializablestring="to be serialized">
+						<fillstyle >
+<OptionsSerializable>
+<cc1:SolidFillOptions HiddenSerializableString="to be serialized"></cc1:SolidFillOptions>
+</OptionsSerializable>
 </fillstyle>
-					</label>
-					<pointoptions hiddenserializablestring="to be serialized"></pointoptions>
-					<legendpointoptions hiddenserializablestring="to be serialized"></legendpointoptions>
+					</cc1:SideBySideBarSeriesLabel>
+</LabelSerializable>
+					<PointOptionsSerializable>
+<cc1:PointOptions hiddenserializablestring="to be serialized"></cc1:PointOptions>
+</PointOptionsSerializable>
+					<LegendPointOptionsSerializable>
+<cc1:PointOptions hiddenserializablestring="to be serialized"></cc1:PointOptions>
+</LegendPointOptionsSerializable>
 				</cc2:Series>
 			</SeriesSerializable>
-			<SeriesTemplate LabelTypeName="SideBySideBarSeriesLabel" PointOptionsTypeName="PointOptions"
-				SeriesViewTypeName="SideBySideBarSeriesView">
-				<PointOptions HiddenSerializableString="to be serialized">
-				</PointOptions>
-				<Label HiddenSerializableString="to be serialized">
-					<FillStyle FillOptionsTypeName="SolidFillOptions">
-						<Options HiddenSerializableString="to be serialized" />
+			<SeriesTemplate  
+				>
+				<PointOptionsSerializable>
+<cc1:PointOptions HiddenSerializableString="to be serialized">
+				</cc1:PointOptions>
+</PointOptionsSerializable>
+				<LabelSerializable>
+<cc1:SideBySideBarSeriesLabel HiddenSerializableString="to be serialized">
+					<FillStyle >
+						<OptionsSerializable>
+<cc1:SolidFillOptions HiddenSerializableString="to be serialized" />
+</OptionsSerializable>
 					</FillStyle>
-				</Label>
-				<LegendPointOptions HiddenSerializableString="to be serialized">
-				</LegendPointOptions>
-				<View HiddenSerializableString="to be serialized">
-				</View>
+				</cc1:SideBySideBarSeriesLabel>
+</LabelSerializable>
+				<LegendPointOptionsSerializable>
+<cc1:PointOptions HiddenSerializableString="to be serialized">
+				</cc1:PointOptions>
+</LegendPointOptionsSerializable>
+				<ViewSerializable>
+<cc1:SideBySideBarSeriesView HiddenSerializableString="to be serialized">
+				</cc1:SideBySideBarSeriesView>
+</ViewSerializable>
 			</SeriesTemplate>
-			<Diagram>
+			<DiagramSerializable>
+<cc1:XYDiagram>
 				<axisx visibleinpanesserializable="-1">
 <Label Angle="-90"></Label>
 
@@ -82,7 +103,8 @@
 				<axisy visibleinpanesserializable="-1">
 <Range SideMarginsEnabled="True"></Range>
 </axisy>
-			</Diagram>
+			</cc1:XYDiagram>
+</DiagramSerializable>
 			<ClientSideEvents ObjectSelected="function(s, e) { 
 	if (e.hitInfo.inSeries) {
 	   var obj = e.additionalHitObject;
@@ -93,8 +115,10 @@
 	   }
 	}
 }" />
-			<FillStyle FillOptionsTypeName="SolidFillOptions">
-				<Options HiddenSerializableString="to be serialized" />
+			<FillStyle >
+				<OptionsSerializable>
+<cc1:SolidFillOptions HiddenSerializableString="to be serialized" />
+</OptionsSerializable>
 			</FillStyle>
 		</dxchartsui:WebChartControl>
 		<asp:AccessDataSource ID="AccessDataSource1" runat="server" DataFile="~/App_Data/nwind.mdb"
