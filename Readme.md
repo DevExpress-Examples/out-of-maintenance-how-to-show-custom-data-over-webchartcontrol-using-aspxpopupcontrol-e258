@@ -2,7 +2,7 @@
 *Files to look at*:
 
 * [Default.aspx](./CS/ChartsExampleSite/Default.aspx) (VB: [Default.aspx](./VB/ChartsExampleSite/Default.aspx))
-* [Default.aspx.cs](./CS/ChartsExampleSite/Default.aspx.cs) (VB: [Default.aspx](./VB/ChartsExampleSite/Default.aspx))
+* [Default.aspx.cs](./CS/ChartsExampleSite/Default.aspx.cs) (VB: [Default.aspx.vb](./VB/ChartsExampleSite/Default.aspx.vb))
 <!-- default file list end -->
 # How to show custom data over WebChartControl using ASPxPopupControl
 
