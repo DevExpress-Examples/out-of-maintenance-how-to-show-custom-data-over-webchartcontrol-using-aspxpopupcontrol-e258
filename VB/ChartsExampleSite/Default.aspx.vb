@@ -15,7 +15,7 @@ Partial Public Class _Default
 	Private headerText As String = Nothing
 	Protected Sub Page_Load(ByVal sender As Object, ByVal e As EventArgs)
 	End Sub
-	Protected Sub ASPxCallbackPanel1_Callback(ByVal source As Object, ByVal e As DevExpress.Web.ASPxClasses.CallbackEventArgsBase)
+	Protected Sub ASPxCallbackPanel1_Callback(ByVal source As Object, ByVal e As DevExpress.Web.CallbackEventArgsBase)
 		AccessDataSource1.SelectCommand = "SELECT * FROM [Products] WHERE ProductName = '" & e.Parameter & "'"
 		Dim data As IEnumerable = AccessDataSource1.Select(DataSourceSelectArguments.Empty)
 		For Each row As DataRowView In data
@@ -25,7 +25,7 @@ Partial Public Class _Default
 			Exit For
 		Next row
 	End Sub
-	Protected Sub ASPxCallbackPanel1_CustomJSProperties(ByVal sender As Object, ByVal e As DevExpress.Web.ASPxClasses.CustomJSPropertiesEventArgs)
+	Protected Sub ASPxCallbackPanel1_CustomJSProperties(ByVal sender As Object, ByVal e As DevExpress.Web.CustomJSPropertiesEventArgs)
 		If Not headerText Is Nothing Then
 			e.Properties.Add("cpHeaderText", headerText)
 		End If
